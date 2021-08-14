@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+:root{
+  --whitecolor-color: white;
+  --whitelfcolor-color: #fff;
+  --whitelbcolor-color: #ccc;
+
+  --greencolor-color: rgb(0, 175, 0);
+}
+
+body {
+  background-color: rgb(88, 88, 88);
+  background-image: url('abstract_background2.jpg');
+  font-size: 24px;
+  font-family: 'Inconsolata', monospace;
+}
+
+.topnav{
+  border-radius: 10px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgb(48, 48, 48);
+  box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
+}
+
+.topnav a{
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
+  transition: color 1s ease;
+}
+
+.topnav span.topnav-title{
+  display: inline-block;
+  font-size: 36px;
+  color: white;
+  text-shadow:0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
+}
+
+.topnav a.topnav-market{
+  float: left;
+  background-color: var(--greencolor-color);
+  box-shadow: 2px 2px 20px var(--greencolor-color);
+  transition: box-shadow 1s ease;
+}
+
+.topnav a.topnav-about{
+  float: right;
+  box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
+  transition: box-shadow 1s ease;
+}
+
+.topnav a:hover{
+  background-color: rgb(126, 126, 126);
+  box-shadow: 0px 0px 50px var(--whitelfcolor-color), 0px 0px 100px var(--whitelbcolor-color);
+}
+
+@keyframes imageanimate{
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.main-image{
+  background-image: url("logo512.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  animation-name: imageanimate;
+  animation-duration: 1s;
+  width: 100%;
+  height: 512px;
+}
