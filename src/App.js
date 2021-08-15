@@ -9,11 +9,6 @@ function App() {
   );
 }
 
-function renderItemName(){
-  return(
-    <p>This is the key word you want: {} </p>
-  )
-}
 
 /*
 class generalText extends React.Component {
