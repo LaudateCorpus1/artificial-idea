@@ -1,5 +1,6 @@
+// This js file is for user inputs, such as typing in a product to look up
 import React, { Component } from 'react';
-import styling from './Input.module.scss';
+import Styling from './Input.module.scss';
 
 class InputString extends React.Component{
     constructor(props){
@@ -11,12 +12,10 @@ class InputString extends React.Component{
 
     render() {
         return(
-            <form>
-                <div className={styling.navList}>
-                <input type='text' className={styling.leftSide} placeholder="Type product here"></input>
-                <input type='submit' className={styling.rightSide} placeholder="asdf"></input>
-                </div>
-            </form>
+            <div className={Styling.navList}>
+            <input type='text' className={Styling.leftSide} placeholder="Type product here"></input>
+            <input type='submit' className={Styling.rightSide} placeholder="asdf"></input>
+            </div>
         );
     };
 }

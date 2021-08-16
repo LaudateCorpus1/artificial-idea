@@ -1,0 +1,45 @@
+// Generic scss file for styling the various objects throughout the project
+// Intended to be used with the scss of various other react components
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+/*basic colors to be used throughout web page*/
+$shaodwfront: #fff;
+$shadowback: #ccc;
+$baseinteractivecolor: rgb(48, 48, 48);
+$oninteractivecolor: rgb(126, 126, 126);
+
+/*basic font styling to be used throughout web page*/
+@mixin font-styling{
+    font-family: 'Inconsolata', monospace;
+}
+
+/*base box shadowing(lighting) to be used as div container outlines*/
+@mixin box-shading{
+    box-shadow: 0px 0px 10px $shaodwfront, 0px 0px 10px $shadowback;
+    border-radius: 10px;
+}
+
+/*left side of an interactive button/object*/
+@mixin border-left{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/*right side of an interactive button/object*/
+@mixin border-right{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*interactive object changes color when hovered over*/
+@mixin interactive{
+    color: white;
+    background-color: rgb(48, 48, 48);
+    text-shadow: 0px 0px 10px $shaodwfront, 0px 0px 10px $shadowback;
+    transition: box-shadow 1s ease;
+    &:hover{
+        background-color: rgb(126, 126, 126);
+        box-shadow: 0px 0px 50px $shaodwfront, 0px 0px 100px $shadowback;
+    }
+}
+
