@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
+$bshaodwfront: #fff;
+$bshadowback: #ccc;
+
+input{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+}
+
+.navList{
+    display: inline-block;
+    box-shadow: 0px 0px 10px $bshaodwfront, 0px 0px 10px $bshadowback;
+border-radius: 10px;
+}
+
+.leftSide{
+    font-weight: bold;
+    height: 32px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.rightSide{
+    height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    background-color: rgb(48, 48, 48);
+    text-shadow: 0px 0px 10px $bshaodwfront, 0px 0px 10px $bshadowback;
+    transition: box-shadow 1s ease;
+}
+
+.rightSide:hover{
+    background-color: rgb(126, 126, 126);
+    box-shadow: 0px 0px 50px $bshaodwfront, 0px 0px 100px $bshadowback;
+}
