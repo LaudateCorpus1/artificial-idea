@@ -1,10 +1,16 @@
 // This file is for generating/intearcting with boxes of text
-import React, { Component } from 'react';
+import React from 'react';
+import  {generateWord, generateParagraph, generateRatings} from './Generator.js';
 import Styling from './TextBox.module.scss';
 
-class TextBox extends React.Component{
-    constructor(props){
-        super(props);
+export function returnWord(props){
+    return(
+        <span>{props.value}</span>
+    );
+}
 
-    }
+export function returnParagraph(props){
+    return(
+        <p>{props.paragraph}</p>
+    );
 }

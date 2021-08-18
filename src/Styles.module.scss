@@ -13,9 +13,17 @@ $oninteractivecolor: rgb(126, 126, 126);
     font-family: 'Inconsolata', monospace;
 }
 
+@mixin general-padding{
+    padding: 10px;
+}
+
 /*base box shadowing(lighting) to be used as div container outlines*/
 @mixin box-shading{
     box-shadow: 0px 0px 10px $shaodwfront, 0px 0px 10px $shadowback;
+    border-radius: 10px;
+}
+
+@mixin border-main{
     border-radius: 10px;
 }
 

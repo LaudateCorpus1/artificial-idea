@@ -42,7 +42,8 @@ body {
   text-shadow:0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
 }
 
-.topnav a.topnav-market{
+.topnav a.topnav-idea{
+  width: 60px;
   float: left;
   background-color: var(--greencolor-color);
   box-shadow: 2px 2px 20px var(--greencolor-color);
@@ -50,6 +51,7 @@ body {
 }
 
 .topnav a.topnav-about{
+  width: 60px;
   float: right;
   box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
   transition: box-shadow 1s ease;
@@ -60,6 +62,7 @@ body {
   box-shadow: 0px 0px 50px var(--whitelfcolor-color), 0px 0px 100px var(--whitelbcolor-color);
 }
 
+/*
 @keyframes image-animate{
   0%   {opacity: 0;}
   100% {opacity: 1;}
@@ -74,6 +77,9 @@ body {
   animation-duration: 1s;
   width: 100%;
   padding-top: 50%;
+
+            }
+*/
+
   /*padding-top: 66.64%;  (img-height / img-width * container-width) */
               /* (853 / 1280 * 100) */
-            }

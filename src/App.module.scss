@@ -1,0 +1,41 @@
+// Styling for App js
+@import './Styles.module.scss';
+
+.App{
+    text-align: center;
+}
+
+.word_picker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.word_column{
+    @include general-padding;
+}
+
+.word_button_outside{
+    @include general-padding
+}
+
+.word_button{
+    @include border-main;
+    @include box-shading;
+    @include interactive;
+    height: 40px;
+    font-size: 22px;
+    border: none;
+}
+
+.refresh_button_outside{
+    width: 512px;
+    height: 512px;
+}
+
+.word_refresh{
+    background-image: src('./logo512.png');
+    max-width: 512px;
+    width: 100%;
+    height: auto;
+}

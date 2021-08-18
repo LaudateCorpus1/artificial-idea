@@ -1,24 +1,25 @@
 // Styling scss for Input.js
 @import './Styles.module.scss';
 
-input{
-    @include font-styling;
-    font-size: 20px;
-}
-
-.navList{
+.navlist{
     @include box-shading;
     display: inline-block;
 }
 
-.leftSide{
+.navlist button, input{
+    @include font-styling;
+    font-size: 20px;
+}
+
+.leftside{
     @include border-left;
     font-weight: bold;
     height: 32px;
 }
 
-.rightSide{
+.rightside{
     @include border-right;
     @include interactive;
     height: 38px;
+    border: none;
 }

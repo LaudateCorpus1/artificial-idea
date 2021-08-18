@@ -12,9 +12,9 @@ class InputString extends React.Component{
 
     render() {
         return(
-            <div className={Styling.navList}>
-            <input type='text' className={Styling.leftSide} placeholder="Type product here"></input>
-            <input type='submit' className={Styling.rightSide} placeholder="asdf"></input>
+            <div className={Styling.navlist}>
+            <input type='text' className={Styling.leftside} placeholder="Type idea here"></input>
+            <button type='submit' className={Styling.rightside}>Generate</button>
             </div>
         );
     };
