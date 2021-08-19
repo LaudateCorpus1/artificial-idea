@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import Styling from './App.module.scss';
 import GetStringInput from './Input.js';
-import  {generateWord, generateParagraph, generateRatings} from './Generator.js';
-import {returnWord, returnParagraph} from './TextBox.js';
+import {generateWord, generateParagraph, generateRatings} from './Generator.js';
+import TextBox from './TextBox.js';
 import words from './nounlist.json';
 import { render } from '@testing-library/react';
 
+//<WordPicker />
+//<GetStringInput />
 function App() {
   return (
     <div className={Styling.App}>
-       <WordPicker />
-       <GetStringInput />
+
+       <TextBox />
     </div>
   );
 }
@@ -70,10 +72,11 @@ class WordPicker extends React.Component{
     this.state = {
       leftwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
       rightwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
+      
     }
   }
 
-  handleClick(i){
+  handleClick(){
     console.log(generateParagraph());
   }
 
@@ -82,7 +85,6 @@ class WordPicker extends React.Component{
       leftwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
       rightwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
     });
-    console.log("clicked refreshed");
   }
 
   render(){

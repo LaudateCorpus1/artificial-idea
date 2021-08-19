@@ -13,8 +13,21 @@ $oninteractivecolor: rgb(126, 126, 126);
     font-family: 'Inconsolata', monospace;
 }
 
+/*general padding for object*/
 @mixin general-padding{
     padding: 10px;
+}
+
+/*general image resizer in element*/
+@mixin image-autoresize{
+    width: 100%;
+    height: auto;
+}
+
+/*general centering for div item*/
+@mixin general-centering{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*base box shadowing(lighting) to be used as div container outlines*/
@@ -23,6 +36,7 @@ $oninteractivecolor: rgb(126, 126, 126);
     border-radius: 10px;
 }
 
+/*general border radius for object*/
 @mixin border-main{
     border-radius: 10px;
 }

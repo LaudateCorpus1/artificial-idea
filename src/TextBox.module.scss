@@ -1,3 +1,36 @@
 // Styling scss for TextBox.js
 @import './Styles.module.scss';
 
+$internal-white: rgba(255, 255, 255, 0.9);
+
+.textbox{
+    @include general-padding;
+    @include border-main;
+    @include general-centering;
+    @include box-shading;
+    overflow: auto;
+    max-width: 1024px;
+    height: auto;
+    background: rgba(48, 48, 48, 0.5);
+}
+
+.textbox_inside{
+    @include general-padding;
+    @include box-shading;
+    background: $internal-white;
+    overflow: hidden;
+}
+
+.image{
+    @include border-main;
+    @include image-autoresize;
+    margin-right: 15px;
+    float: left;
+    max-width: 512px;
+}
+
+.paragraph_text{
+    @include border-main;
+    text-align: left;
+    margin: 0px;
+}

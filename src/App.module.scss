@@ -6,7 +6,7 @@
 }
 
 .word_picker{
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
 }
@@ -29,8 +29,8 @@
 }
 
 .refresh_button_outside{
-    width: 512px;
-    height: 512px;
+    position :absolute;
+    
 }
 
 .word_refresh{

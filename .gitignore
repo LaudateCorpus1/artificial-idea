@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+test512.png
 
 # production
 /build
