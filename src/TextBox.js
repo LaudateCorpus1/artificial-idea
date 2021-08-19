@@ -3,23 +3,12 @@ import React, {Component} from 'react';
 import  {generateWord, generateParagraph, generateRatings} from './Generator.js';
 import Styling from './TextBox.module.scss';
 
-//<div className={Styling.image_outside}>
-//<img className={Styling.image} src='./logo512.png'>
-//</img>
-//</div>
-
 function MakeImage(props){
     return(
         <img className={Styling.image} src='./test512.png'>
         </img>
     );
 }
-
-//<div className={Styling.paragraph_outside}>
-//<p className={Styling.paragraph_text}>
-//  poooojmjmmm is truel;y the best like how can it even be defined as uch difference
-//</p>
-//</div>
 
 function MakeParagraph(props){
     return(
@@ -28,12 +17,12 @@ function MakeParagraph(props){
         </p>
     );
 }
-
+//pneumonoultramicroscopicsilicovolcanoconiosis
 class TextBox extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            word: 'natm',
+            word: 'pneumonoultramicroscopicsilicovolcanoconiosis',
         }
     }
 
@@ -41,6 +30,9 @@ class TextBox extends React.Component{
         return(
             <div className={Styling.textbox}>
                 <div className={Styling.textbox_inside}>
+                    <div className={Styling.textbox_word_outside}>
+                        <span className={Styling.textbox_word}>{this.state.word}</span>
+                    </div>
                     <MakeImage/>
                     <MakeParagraph/>
                 </div>

@@ -3,15 +3,16 @@
 
 $internal-white: rgba(255, 255, 255, 0.9);
 
+
 .textbox{
     @include general-padding;
     @include border-main;
     @include general-centering;
     @include box-shading;
-    overflow: auto;
     max-width: 1024px;
+    overflow: auto;
     height: auto;
-    background: rgba(48, 48, 48, 0.5);
+    background: $background-transparent;
 }
 
 .textbox_inside{
@@ -21,11 +22,23 @@ $internal-white: rgba(255, 255, 255, 0.9);
     overflow: hidden;
 }
 
+.textbox_word_outside{
+    @include autoresize;
+    margin-bottom: 15px;
+    max-height: auto;
+}
+
+.textbox_word{
+    overflow-wrap: break-word;
+    text-align: center;
+    font-size: 34px;
+}
+
 .image{
     @include border-main;
-    @include image-autoresize;
-    margin-right: 15px;
+    @include autoresize;
     float: left;
+    margin-right: 15px;
     max-width: 512px;
 }
 

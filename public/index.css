@@ -62,6 +62,12 @@ body {
   box-shadow: 0px 0px 50px var(--whitelfcolor-color), 0px 0px 100px var(--whitelbcolor-color);
 }
 
+hr{
+  border: 1px solid var(--whitecolor-color);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
+}
+
 /*
 @keyframes image-animate{
   0%   {opacity: 0;}

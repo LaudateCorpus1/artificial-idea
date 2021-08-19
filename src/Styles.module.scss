@@ -3,7 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 
 /*basic colors to be used throughout web page*/
-$shaodwfront: #fff;
+$background: rgb(48, 48, 48);
+$background-transparent: rgba(48, 48, 48, 0.5);
+
+$shadowfront: #fff;
 $shadowback: #ccc;
 $baseinteractivecolor: rgb(48, 48, 48);
 $oninteractivecolor: rgb(126, 126, 126);
@@ -13,15 +16,15 @@ $oninteractivecolor: rgb(126, 126, 126);
     font-family: 'Inconsolata', monospace;
 }
 
+/*general image resizer in element*/
+@mixin autoresize{
+    width: 100%;
+    height: auto;
+}
+
 /*general padding for object*/
 @mixin general-padding{
     padding: 10px;
-}
-
-/*general image resizer in element*/
-@mixin image-autoresize{
-    width: 100%;
-    height: auto;
 }
 
 /*general centering for div item*/
@@ -32,7 +35,7 @@ $oninteractivecolor: rgb(126, 126, 126);
 
 /*base box shadowing(lighting) to be used as div container outlines*/
 @mixin box-shading{
-    box-shadow: 0px 0px 10px $shaodwfront, 0px 0px 10px $shadowback;
+    box-shadow: 0px 0px 10px $shadowfront, 0px 0px 10px $shadowback;
     border-radius: 10px;
 }
 
@@ -57,11 +60,11 @@ $oninteractivecolor: rgb(126, 126, 126);
 @mixin interactive{
     color: white;
     background-color: rgb(48, 48, 48);
-    text-shadow: 0px 0px 10px $shaodwfront, 0px 0px 10px $shadowback;
+    text-shadow: 0px 0px 10px $shadowfront, 0px 0px 10px $shadowback;
     transition: box-shadow 1s ease;
     &:hover{
         background-color: rgb(126, 126, 126);
-        box-shadow: 0px 0px 50px $shaodwfront, 0px 0px 100px $shadowback;
+        box-shadow: 0px 0px 50px $shadowfront, 0px 0px 100px $shadowback;
     }
 }
 
