@@ -1,0 +1,81 @@
+// Styling for WordPicker.js
+@import './Styles.module.scss';
+
+.word_picker{
+    @include general-horizontal-centering;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    height: 450px;
+}
+
+.left_word_picker{
+    @include autoresize;
+    max-width: 300px;
+}
+
+.right_word_picker{
+    @include autoresize;
+    max-width: 300px;
+}
+
+.word_column{
+    @include general-padding;
+    @include general-horizontal-centering;
+}
+
+.word_button_outside{
+    @include general-padding;
+}
+
+.word_button{
+    @include general-padding;
+    @include autoresize;
+    @include border-main;
+    @include box-shading;
+    @include interactive;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 512px;
+    font-size: 24px;
+    border: none;
+}
+
+.refresh_button{
+    @include autoresize;
+    @include border-main;
+    @include box-shading;
+    @include interactive-nocolorchange;
+    background-color: $background;
+    position: relative;
+    max-width: 192px;
+    max-height: 192px;
+}
+
+/* in case the screen size gets smaller than 900px (for phones/tablets)*/
+@media (max-width: 900px){
+    .word_picker{
+        @include general-horizontal-centering;
+        display: inline-block;
+        max-width: 900px;
+        height: auto;
+    }
+
+    .left_word_picker{
+        height: 480px;
+        position: relative;
+    }
+
+    /* had to use an extra div due to screen bopping up and down
+       during word changes*/
+    .left_word_picker_adjuster{
+        @include autoresize;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .right_word_picker{
+        height: 480px;
+    }
+}

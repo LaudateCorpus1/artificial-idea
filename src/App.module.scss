@@ -5,37 +5,3 @@
     text-align: center;
 }
 
-.word_picker{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.word_column{
-    @include general-padding;
-}
-
-.word_button_outside{
-    @include general-padding
-}
-
-.word_button{
-    @include border-main;
-    @include box-shading;
-    @include interactive;
-    height: 40px;
-    font-size: 22px;
-    border: none;
-}
-
-.refresh_button_outside{
-    position :absolute;
-    
-}
-
-.word_refresh{
-    background-image: src('./logo512.png');
-    max-width: 512px;
-    width: 100%;
-    height: auto;
-}

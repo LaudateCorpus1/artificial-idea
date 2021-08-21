@@ -11,6 +11,9 @@ $shadowback: #ccc;
 $baseinteractivecolor: rgb(48, 48, 48);
 $oninteractivecolor: rgb(126, 126, 126);
 
+$pressedcolor: rgb(0, 200, 0);
+$presseddullercolor: rgb(0, 126, 0);
+
 /*basic font styling to be used throughout web page*/
 @mixin font-styling{
     font-family: 'Inconsolata', monospace;
@@ -28,7 +31,7 @@ $oninteractivecolor: rgb(126, 126, 126);
 }
 
 /*general centering for div item*/
-@mixin general-centering{
+@mixin general-horizontal-centering{
     margin-left: auto;
     margin-right: auto;
 }
@@ -59,12 +62,37 @@ $oninteractivecolor: rgb(126, 126, 126);
 /*interactive object changes color when hovered over*/
 @mixin interactive{
     color: white;
-    background-color: rgb(48, 48, 48);
+    background-color: $baseinteractivecolor;
     text-shadow: 0px 0px 10px $shadowfront, 0px 0px 10px $shadowback;
     transition: box-shadow 1s ease;
     &:hover{
-        background-color: rgb(126, 126, 126);
-        box-shadow: 0px 0px 50px $shadowfront, 0px 0px 100px $shadowback;
+        background-color: $oninteractivecolor;
+        box-shadow: 0px 0px 25px $shadowfront, 0px 0px 50px $shadowback;
+    }
+    &:focus{
+        background-color: $pressedcolor;
+        box-shadow: 0px 0px 15px $pressedcolor, 0px 0px 50px $presseddullercolor;
     }
 }
 
+@mixin interactive-nocolorchange{
+    color: white;
+    background-color: $baseinteractivecolor;
+    text-shadow: 0px 0px 10px $shadowfront, 0px 0px 10px $shadowback;
+    transition: box-shadow 1s ease;
+    &:hover{
+        background-color: $oninteractivecolor;
+        box-shadow: 0px 0px 25px $shadowfront, 0px 0px 50px $shadowback;
+    }
+    /*
+    &:focus{
+        animation: color-change .2s ease;
+    }
+    */
+}
+
+@keyframes color-change{
+    0% {background: rgb(126, 126, 126);}
+    50% {background: rgb(48, 48, 48);}
+    100% {background: rgb(126, 126, 126);}
+}

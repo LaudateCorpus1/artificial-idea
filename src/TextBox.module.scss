@@ -7,7 +7,7 @@ $internal-white: rgba(255, 255, 255, 0.9);
 .textbox{
     @include general-padding;
     @include border-main;
-    @include general-centering;
+    @include general-horizontal-centering;
     @include box-shading;
     max-width: 1024px;
     overflow: auto;
