@@ -2,8 +2,8 @@
 @import './Styles.module.scss';
 
 .navlist{
-    @include box-shading;
     display: inline-block;
+    justify-content: center;
 }
 
 .navlist button, input{
@@ -13,13 +13,29 @@
 
 .leftside{
     @include border-left;
+    @include box-shading;
     font-weight: bold;
+    width: 400px;
     height: 32px;
 }
 
 .rightside{
     @include border-right;
+    @include box-shading;
     @include interactive;
     height: 38px;
     border: none;
 }
+
+
+@media (max-width: $changelooksmall){
+    .leftside{
+        @include border-main;
+        width: 100%;
+    }
+    .rightside{
+        @include border-main;
+        margin: 15px;
+    }
+}
+

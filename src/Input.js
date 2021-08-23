@@ -13,8 +13,20 @@ class InputString extends React.Component{
     render() {
         return(
             <div className={Styling.navlist}>
-            <input type='text' className={Styling.leftside} placeholder="Type idea here"></input>
-            <button type='submit' className={Styling.rightside}>Generate</button>
+                <input 
+                    type='text' 
+                    className={Styling.leftside} 
+                    onChange={(event) => this.setState({userString: event.target.value})} 
+                    maxLength='64' 
+                    placeholder="Type idea here"
+                >
+                </input>
+                <button 
+                    className={Styling.rightside} 
+                    onClick={() => this.props.callbackObject(this.state.userString)}
+                >
+                    Generate
+                </button>
             </div>
         );
     };

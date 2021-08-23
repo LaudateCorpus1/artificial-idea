@@ -14,6 +14,13 @@ $oninteractivecolor: rgb(126, 126, 126);
 $pressedcolor: rgb(0, 200, 0);
 $presseddullercolor: rgb(0, 126, 0);
 
+/*change the look of some objects at a screen size smaller than 550px*/
+$changelooksmall: 550px;
+
+/*change the look of some objects at a screen size smaller than 900px*/
+
+$changelooklarge: 900px;
+
 /*basic font styling to be used throughout web page*/
 @mixin font-styling{
     font-family: 'Inconsolata', monospace;
@@ -39,7 +46,6 @@ $presseddullercolor: rgb(0, 126, 0);
 /*base box shadowing(lighting) to be used as div container outlines*/
 @mixin box-shading{
     box-shadow: 0px 0px 10px $shadowfront, 0px 0px 10px $shadowback;
-    border-radius: 10px;
 }
 
 /*general border radius for object*/

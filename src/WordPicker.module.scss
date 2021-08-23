@@ -54,7 +54,7 @@
 }
 
 /* in case the screen size gets smaller than 900px (for phones/tablets)*/
-@media (max-width: 900px){
+@media (max-width: $changelooklarge){
     .word_picker{
         @include general-horizontal-centering;
         display: inline-block;

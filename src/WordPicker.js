@@ -59,41 +59,45 @@ class WordPicker extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            leftwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
-            rightwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>, 
+            /* callbackObject sends the generated word back to the parent component*/
+            leftwordcolumn: <WordButtons 
+                                onUseWord={word => this.props.callbackObject(word)}
+                            />,
+            rightwordcolumn: <WordButtons 
+                                onUseWord={word => this.props.callbackObject(word)}
+                            />, 
         }
     }
   
-    // handles a WordButtons click and returns a word
-    handleClick(word){
-        return(
-            word
-        );
-    }
-  
     // handles MakeRefreshButton click and refreshes words in buttons
-    handleClickRefresh(){
+    handleClickRefresh = () => {
         this.setState({
-            leftwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
-            rightwordcolumn: <WordButtons onUseWord={word => this.handleClick(word)}/>,
+            leftwordcolumn: <WordButtons 
+                                onUseWord={word => this.props.callbackObject(word)}
+                            />,
+            rightwordcolumn: <WordButtons 
+                                onUseWord={word => this.props.callbackObject(word)}
+                            />,
         });
     }
   
     render(){
         return(
-          <div className={Styling.word_picker}>
-              <div className={Styling.left_word_picker}>
-                  <div className={Styling.left_word_picker_adjuster}>
-                      {this.state.leftwordcolumn}
-                  </div>
-              </div>
-              <MakeRefreshButton onClickRefresh={() => this.handleClickRefresh()}/>
-              <div className={Styling.right_word_picker}>
-                  {this.state.rightwordcolumn}
-              </div>
-          </div>
+            <div className={Styling.word_picker}>
+                <div className={Styling.left_word_picker}>
+                    <div className={Styling.left_word_picker_adjuster}>
+                        {this.state.leftwordcolumn}
+                    </div>
+                </div>
+                <MakeRefreshButton 
+                    onClickRefresh={() => this.handleClickRefresh()}
+                />
+                <div className={Styling.right_word_picker}>
+                    {this.state.rightwordcolumn}
+                </div>
+            </div>
         );
     }
 }
-  
+
 export default WordPicker;
