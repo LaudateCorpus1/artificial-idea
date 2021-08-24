@@ -17,15 +17,14 @@ body {
 
 .topnav{
   border-radius: 10px;
-  display: block;
-  overflow: hidden;
   text-align: center;
+  position: relative;
+  overflow: hidden;
   background-color: rgb(48, 48, 48);
   box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
 }
 
 .topnav a{
-  display: block;
   padding: 8px 16px;
   text-decoration: none;
   color: white;
@@ -33,26 +32,33 @@ body {
   transition: color 1s ease;
 }
 
-.topnav span.topnav-title{
+.topnav-title{
   display: inline-block;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  margin: 2px auto;
+  height: 100%;
   font-size: 36px;
   color: white;
   text-shadow:0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
 }
 
+@media (max-width: 510px){
+  .topnav-title{
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+
 .topnav a.topnav-idea{
-  width: 60px;
   float: left;
+  width: 60px;
   background-color: var(--greencolor-color);
   box-shadow: 2px 2px 20px var(--greencolor-color);
   transition: box-shadow 1s ease;
 }
 
 .topnav a.topnav-about{
-  width: 60px;
   float: right;
+  width: 60px;
   box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
   transition: box-shadow 1s ease;
 }

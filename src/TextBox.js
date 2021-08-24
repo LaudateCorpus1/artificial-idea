@@ -1,6 +1,6 @@
 // This file is for generating/intearcting with boxes of text
-import React, {Component} from 'react';
-import  {generateWord, generateParagraph, generateRatings} from './Generator.js';
+import React from 'react';
+import  {generateWord, generateParagraph} from './Generator.js';
 import Styling from './TextBox.module.scss';
 
 // get image to put into the custom textbox

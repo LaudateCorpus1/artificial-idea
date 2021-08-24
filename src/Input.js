@@ -1,5 +1,5 @@
 // This js file is for user inputs, such as typing in a product to look up
-import React, { Component } from 'react';
+import React from 'react';
 import Styling from './Input.module.scss';
 
 class InputString extends React.Component{

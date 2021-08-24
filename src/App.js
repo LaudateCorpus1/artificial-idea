@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Styling from './App.module.scss';
 import WordPicker from './WordPicker.js';
 import Input from './Input.js';

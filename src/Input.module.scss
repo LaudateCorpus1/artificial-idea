@@ -17,6 +17,12 @@
     font-weight: bold;
     width: 400px;
     height: 32px;
+    transition: box-shadow 1s ease;
+    &:focus{
+        outline: none !important;
+        border: 2px solid $pressedcolor;
+        box-shadow: 0px 0px 15px $pressedcolor, 0px 0px 50px $presseddullercolor;
+    }
 }
 
 .rightside{
@@ -31,7 +37,7 @@
 @media (max-width: $changelooksmall){
     .leftside{
         @include border-main;
-        width: 100%;
+        width: 97%;
     }
     .rightside{
         @include border-main;
