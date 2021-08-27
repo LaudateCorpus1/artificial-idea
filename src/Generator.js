@@ -1,8 +1,10 @@
 // This file is for generating text, ratings, and images using strings via 
 // DeepAI API and some custom methods
 import Words from './nounlist.json';
-//<!--OpenAI CDN library-->
-//<!--<script src="https://cdnjs.deepai.org/deepai.min.js"></script>-->
+import {deepaikey} from './keys.js';
+
+const deepai = require('deepai');
+deepai.setApiKey(deepaikey);  
 
 // returns a word gotten from a list of nouns from a json file
 export function generateWord(){
@@ -11,14 +13,24 @@ export function generateWord(){
     );
 }
 
-// generates a paragraph of text
-export function generateParagraph(){
-    return(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    );
+// uses a Promise async/await to help in generating a paragraph of text
+export async function generateParagraph(word){
+    var resp = await deepai.callStandardApi("text-generator", {
+        text: "YOUR_TEXT_HERE",
+    });
+    //console.log(resp);
+    //console.log('new repsosne for paragraph');
+    return resp.output;
 }
+//generateParagraph().then(
+//    function(result){return result.output}
+//);
 
-// generates an image
-export function generateImage(){
-    
+// uses a Promise to async/await to help in generating an image
+export async function generateImage(word){
+    var resp = await deepai.callStandardApi("text2img", {
+        text: "YOUR_TEXT_HERE",
+    });
+    console.log(resp);
+    //return resp.output;
 }
