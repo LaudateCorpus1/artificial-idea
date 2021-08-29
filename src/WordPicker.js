@@ -1,7 +1,7 @@
 // WordPicker and all of its objects (used in letting the user pick a desired word)
 import React from 'react';
 import Styling from './WordPicker.module.scss';
-import {generateWord} from './Generator.js';
+import {generateWord} from './MakeData.js';
 
 // returns a button with a given prop as an input value
 function MakeWordButton(props){

@@ -1,13 +1,14 @@
 // This file is for generating/intearcting with boxes of text
 import React from 'react';
-import  {generateParagraph, generateImage} from './Generator.js';
+import  {generateParagraph, generateImage} from './MakeData.js';
 import Styling from './TextBox.module.scss';
 
 // get image to put into the custom textbox
 function MakeImage(props){
-    if(props.word){
+    //console.log('image got here - ' + props.image);
+    if(props.image){
         return(
-            <img className={Styling.image} src='./test512.png'/>
+            <img className={Styling.image} src={props.image}/>
         );
     }
     else{
@@ -19,26 +20,95 @@ function MakeImage(props){
 
 // get paragraph to put into the custom textbox
 function MakeParagraph(props){
-    console.log('word got here - ' + props.word);
-    if(props.word){
-        generateParagraph().then(
-            function(result){
-                console.log(result);
-                return(
-                    <p className={Styling.paragraph_text}>
-                        
-                    </p>
-                );
-            }
+    //console.log('paragraph got here - ' + props.paragraph);
+    if(props.paragraph){
+        return(
+            <p className={Styling.paragraph_text}>
+                {props.paragraph}
+            </p>
         );
     }
     else{
         return(
             <p className={Styling.paragraph_text}>
-                Pick a word above and see what Artificial Idea gets generated!
+                Oh No!!! Something went wrong!!!
             </p>
         );
     }
+}
+
+class TextBoxItems extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            word: this.props.word,
+            image: <MakeImage 
+                image='./logo512.png'
+            />,
+            paragraph: <MakeParagraph 
+                paragraph='Pick a word above and see what 
+                Artificial Idea gets generated!'
+            />,
+        }
+    }
+
+    componentDidUpdate(){
+        if(this.state.word !== this.props.word){
+            if(this.props.word === ''){
+                this.setState({
+                    word: this.props.word,
+                    image: <MakeImage 
+                        image='./logo512.png'
+                    />,
+                    paragraph: <MakeParagraph 
+                        paragraph='Pick a word above and see what 
+                        Artificial Idea gets generated!'
+                    />,
+                })
+            }
+            else{
+                (async () => {
+                    let imagesrc = await generateImage(this.props.word)
+                        .then(
+                            (result) => {
+                                return result;
+                        })
+                        .catch(
+                            () => {
+                                return false;
+                        })
+                    let paragraphtext = await generateParagraph(this.props.word)
+                        .then(
+                            (result) => {
+                                return result;
+                        })
+                        .catch(
+                            () => {
+                                return false;
+                        })
+                    this.setState({
+                        word: this.props.word,
+                        image: <MakeImage
+                            image={imagesrc}
+                        />,
+                        paragraph: <MakeParagraph
+                            paragraph={paragraphtext}
+                        />,
+                    })
+                })()
+            }
+        }
+    }
+
+    render(){
+        return(
+            <div>
+            {this.state.image}
+            {this.state.paragraph}
+            </div>
+        );
+    }
+
 }
 
 // longest (english)word: pneumonoultramicroscopicsilicovolcanoconiosis
@@ -53,9 +123,7 @@ class TextBox extends React.Component{
                             {this.props.word}
                         </span>
                     </div>
-                    
-                    <MakeImage word={this.props.word}/>
-                    <MakeParagraph word={this.props.word}/>
+                    <TextBoxItems word={this.props.word}/>
                 </div>
             </div>
         );
@@ -63,61 +131,3 @@ class TextBox extends React.Component{
 }
 
 export default TextBox;
-
-/*
-function WaitTilExists(props){
-    console.log('started');
-    let count = 0;
-    let finished = false;
-    let time = setTimeout(() => {
-        console.log('timeout: ' + finished);
-        finished = true;
-
-    }, 3000);
-    let intv = setInterval(() => {
-        count = count + 1;
-        console.log('interval: ' + finished);
-        //console.log(count);
-        if(finished){
-            clearInterval(intv);
-            clearTimeout(time);
-            console.log('time met, give up');
-        }
-    }, 500);
-}
-
-class TextBoxItems extends React.Component{
-
-    renderImage(props){
-        console.log('renderimage')
-        generateParagraph().then(
-            function(result){
-                console.log(result);
-                return(
-                    <MakeParagraph word={props.word}/>
-                );
-            }
-        );
-        console.log('the iamge time');
-    }
-
-    renderParagraph(props){
-        return(
-            <MakeParagraph word={this.props.word}/>
-        );
-
-        //generateImage(props.word);
-        console.log('propsparagarph')
-    }
-
-    render(){
-        return(
-            <div>
-            {this.renderImage(this.props.word)}
-            {this.renderParagraph(this.props.word)}
-            </div>
-        );
-    }
-
-}
-*/
