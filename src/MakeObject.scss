@@ -1,0 +1,44 @@
+// styling for objects used in react component creation
+@import './Styles.module.scss';
+
+.word-button-outside{
+    @include general-padding;
+}
+
+.word-button{
+    @include general-padding;
+    @include autoresize;
+    @include border-main;
+    @include box-shading;
+    @include interactive;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 512px;
+    font-size: 24px;
+    border: none;
+}
+
+.refresh-button{
+    @include autoresize;
+    @include border-main;
+    @include box-shading;
+    @include interactive-nocolorchange;
+    background-color: $background;
+    position: relative;
+    max-width: 192px;
+    max-height: 192px;
+}
+
+.image{
+    @include border-main;
+    @include autoresize;
+    float: left;
+    margin-right: 15px;
+    max-width: 512px;
+}
+
+.paragraph-text{
+    @include border-main;
+    text-align: left;
+    margin: 0px;
+}

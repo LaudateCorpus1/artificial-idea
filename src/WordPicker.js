@@ -1,33 +1,8 @@
-// WordPicker and all of its objects (used in letting the user pick a desired word)
+// WordPicker and all of its components (used in letting the user pick a desired word)
 import React from 'react';
-import Styling from './WordPicker.module.scss';
+import './WordPicker.scss';
 import {generateWord} from './MakeData.js';
-
-// returns a button with a given prop as an input value
-function MakeWordButton(props){
-    return(
-        <div className={Styling.word_button_outside}>
-            <input 
-                type='button'
-                className={Styling.word_button}
-                defaultValue={props.value}
-                onClick={props.onClickWord}>
-            </input>
-        </div>
-    );
-}
-
-// returns a refresh button to update buttons with new prop values
-function MakeRefreshButton(props){
-    return(
-        <input 
-            type='image'
-            src='./white-refresh-arrow.png'
-            className={Styling.refresh_button}
-            onClick={props.onClickRefresh}>
-        </input>
-    );
-}
+import {MakeWordButton, MakeRefreshButton} from './MakeObject.js';
 
 // render & returns a word column with approx 5 buttons, each with a word value
 class WordButtons extends React.Component{
@@ -43,7 +18,7 @@ class WordButtons extends React.Component{
   
     render(){
         return(
-            <div className={Styling.word_column}>
+            <div className='word-column'>
                 {this.renderButtons()}
                 {this.renderButtons()}
                 {this.renderButtons()}
@@ -54,7 +29,8 @@ class WordButtons extends React.Component{
     }
 }
 
-// component that can be used to return a randomly generated word
+// component that can be used to return randomly 
+// generated words for use by a user
 class WordPicker extends React.Component{
     constructor(props){
         super(props);
@@ -83,16 +59,16 @@ class WordPicker extends React.Component{
   
     render(){
         return(
-            <div className={Styling.word_picker}>
-                <div className={Styling.left_word_picker}>
-                    <div className={Styling.left_word_picker_adjuster}>
+            <div className='word-picker'>
+                <div className='left-word-picker'>
+                    <div className='left-word-picker-adjuster'>
                         {this.state.leftwordcolumn}
                     </div>
                 </div>
                 <MakeRefreshButton 
                     onClickRefresh={() => this.handleClickRefresh()}
                 />
-                <div className={Styling.right_word_picker}>
+                <div className='right-word-picker'>
                     {this.state.rightwordcolumn}
                 </div>
             </div>

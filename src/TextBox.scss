@@ -14,7 +14,7 @@ $internal-white: rgba(255, 255, 255, 0.9);
     background: $background-transparent;
 }
 
-.textbox_inside{
+.textbox-inside{
     @include general-padding;
     @include border-main;
     @include box-shading;
@@ -22,28 +22,14 @@ $internal-white: rgba(255, 255, 255, 0.9);
     overflow: hidden;
 }
 
-.textbox_word_outside{
+.textbox-word-outside{
     @include autoresize;
     margin-bottom: 15px;
     max-height: auto;
 }
 
-.textbox_word{
+.textbox-word{
     overflow-wrap: break-word;
     text-align: center;
     font-size: 34px;
-}
-
-.image{
-    @include border-main;
-    @include autoresize;
-    float: left;
-    margin-right: 15px;
-    max-width: 512px;
-}
-
-.paragraph_text{
-    @include border-main;
-    text-align: left;
-    margin: 0px;
 }

@@ -1,21 +1,21 @@
+// main app js to hold overall react app
+
 import React from 'react';
-import Styling from './App.module.scss';
 import WordPicker from './WordPicker.js';
 import Input from './Input.js';
 import TextBox from './TextBox.js';
-import { render } from '@testing-library/react';
+import './App.scss';
 
-//<TextBox word={"booglola"}/>
-//<GetStringInput />
+// return app
 function App() {
   return (
-    <div className={Styling.App}>
+    <div className='App'>
       <ArtificialIdea/>
-
     </div>
   );
 }
 
+// component used to set up overall artificial idea app
 class ArtificialIdea extends React.Component{
   constructor(props){
     super(props);
@@ -27,17 +27,17 @@ class ArtificialIdea extends React.Component{
   render(){
     return(
       <div>
-        <div className={Styling.wordpicker}>
+        <div className='app-wordpicker'>
           <WordPicker 
             callbackObject={word => this.setState({word: word})}
           />
         </div>
-        <div className={Styling.input}>
+        <div className='app-input'>
           <Input 
             callbackObject={userString => this.setState({word: userString})}
           />
         </div>
-        <div className={Styling.textbox}>
+        <div className='app-textbox'>
           <TextBox 
             word={this.state.word}
           />

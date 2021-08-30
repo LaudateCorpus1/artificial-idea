@@ -1,7 +1,8 @@
 // This js file is for user inputs, such as typing in a product to look up
 import React from 'react';
-import Styling from './Input.module.scss';
+import './Input.scss';
 
+// component to return an input string from the user as a callback
 class InputString extends React.Component{
     constructor(props){
         super(props);
@@ -12,17 +13,17 @@ class InputString extends React.Component{
 
     render() {
         return(
-            <div className={Styling.navlist}>
+            <div className='navlist'>
                 <input 
                     type='text' 
-                    className={Styling.leftside} 
+                    className='leftside' 
                     onChange={(event) => this.setState({userString: event.target.value})} 
                     maxLength='64' 
                     placeholder="Type idea here"
                 >
                 </input>
                 <button 
-                    className={Styling.rightside} 
+                    className='rightside' 
                     onClick={() => this.props.callbackObject(this.state.userString)}
                 >
                     Generate

@@ -1,42 +1,11 @@
 // This file is for generating/intearcting with boxes of text
+// to get a user input
 import React from 'react';
 import  {generateParagraph, generateImage} from './MakeData.js';
-import Styling from './TextBox.module.scss';
+import {MakeImage, MakeParagraph} from './MakeObject.js';
+import './TextBox.scss';
 
-// get image to put into the custom textbox
-function MakeImage(props){
-    //console.log('image got here - ' + props.image);
-    if(props.image){
-        return(
-            <img className={Styling.image} src={props.image}/>
-        );
-    }
-    else{
-        return(
-            <img className={Styling.image} src='./cancel-mark.png'/>
-        );
-    }
-}
-
-// get paragraph to put into the custom textbox
-function MakeParagraph(props){
-    //console.log('paragraph got here - ' + props.paragraph);
-    if(props.paragraph){
-        return(
-            <p className={Styling.paragraph_text}>
-                {props.paragraph}
-            </p>
-        );
-    }
-    else{
-        return(
-            <p className={Styling.paragraph_text}>
-                Oh No!!! Something went wrong!!!
-            </p>
-        );
-    }
-}
-
+// component to generate/update state of textbox objects
 class TextBoxItems extends React.Component{
     constructor(props){
         super(props);
@@ -55,6 +24,7 @@ class TextBoxItems extends React.Component{
     componentDidUpdate(){
         if(this.state.word !== this.props.word){
             if(this.props.word === ''){
+                // if the componenet updates with no word, set default objects
                 this.setState({
                     word: this.props.word,
                     image: <MakeImage 
@@ -67,25 +37,11 @@ class TextBoxItems extends React.Component{
                 })
             }
             else{
+                // if there is a change of word then update 
+                // objects with newly generated data
                 (async () => {
-                    let imagesrc = await generateImage(this.props.word)
-                        .then(
-                            (result) => {
-                                return result;
-                        })
-                        .catch(
-                            () => {
-                                return false;
-                        })
-                    let paragraphtext = await generateParagraph(this.props.word)
-                        .then(
-                            (result) => {
-                                return result;
-                        })
-                        .catch(
-                            () => {
-                                return false;
-                        })
+                    let imagesrc = await generateImage(this.props.word);
+                    let paragraphtext = await generateParagraph(this.props.word);
                     this.setState({
                         word: this.props.word,
                         image: <MakeImage
@@ -108,7 +64,6 @@ class TextBoxItems extends React.Component{
             </div>
         );
     }
-
 }
 
 // longest (english)word: pneumonoultramicroscopicsilicovolcanoconiosis
@@ -116,10 +71,10 @@ class TextBoxItems extends React.Component{
 class TextBox extends React.Component{
     render(){
         return(
-            <div className={Styling.textbox}>
-                <div className={Styling.textbox_inside}>
-                    <div className={Styling.textbox_word_outside}>
-                        <span className={Styling.textbox_word}>
+            <div className='textbox'>
+                <div className='textbox-inside'>
+                    <div className='textbox-word-outside'>
+                        <span className='textbox-word'>
                             {this.props.word}
                         </span>
                     </div>

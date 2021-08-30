@@ -17,17 +17,35 @@ export function generateWord(){
 export async function generateParagraph(word){
     var resp = await deepai.callStandardApi("text-generator", {
         text: word,
-});
-//console.log(resp);
-return resp.output;
+    }).then(
+        (resp) => {
+            return resp.output;
+        }
+    )
+    .catch(
+        () => {
+            return false;
+        }
+    )
+    //console.log(resp);
+    return resp;
 } 
 
 // uses a Promise async/await to help in generating an image
 export async function generateImage(word){
     var resp = await deepai.callStandardApi("text2img", {
         text: word,
-    });
+    }).then(
+        (resp) => {
+            return resp.output_url;
+        }
+    )
+    .catch(
+        () => {
+            return false;
+        }
+    )
     //console.log(resp);
-    return resp.output_url;
+    return resp;
 }
 
