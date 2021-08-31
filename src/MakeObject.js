@@ -3,7 +3,7 @@
 import React from 'react';
 import './MakeObject.scss';
 
-// returns a button with a given prop as an input value
+// returns a button with a given prop value as input
 export function MakeWordButton(props){
     return(
         <div className='word-button-outside'>
@@ -17,7 +17,7 @@ export function MakeWordButton(props){
     );
 }
 
-// returns a refresh button to update buttons with new prop values
+// returns a refresh button to update certain objects
 export function MakeRefreshButton(props){
     return(
         <input 

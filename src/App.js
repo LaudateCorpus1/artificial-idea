@@ -27,17 +27,17 @@ class ArtificialIdea extends React.Component{
   render(){
     return(
       <div>
-        <div className='app-wordpicker'>
+        <div className='artfidea-wordpicker'>
           <WordPicker 
             callbackObject={word => this.setState({word: word})}
           />
         </div>
-        <div className='app-input'>
+        <div className='artfidea-input'>
           <Input 
             callbackObject={userString => this.setState({word: userString})}
           />
         </div>
-        <div className='app-textbox'>
+        <div className='artfidea-textbox'>
           <TextBox 
             word={this.state.word}
           />

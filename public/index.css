@@ -6,6 +6,7 @@
   --whitelbcolor-color: #ccc;
 
   --greencolor-color: rgb(0, 200, 0);
+  --greencolorpressed-color: rgb(0, 126, 0);
 }
 
 body {
@@ -13,6 +14,12 @@ body {
   background-image: url('abstract_background2.jpg');
   font-size: 24px;
   font-family: 'Inconsolata', monospace;
+}
+
+@media(max-width: 900px){
+  body {
+    background-size: 1080px 100%;
+  }
 }
 
 .topnav{
@@ -66,6 +73,7 @@ body {
 .topnav a:hover{
   background-color: rgb(126, 126, 126);
   box-shadow: 0px 0px 50px var(--whitelfcolor-color), 0px 0px 100px var(--whitelbcolor-color);
+  transition: box-shadow 1s ease;
 }
 
 hr{
@@ -75,24 +83,20 @@ hr{
   box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
 }
 
-/*
-@keyframes image-animate{
-  0%   {opacity: 0;}
-  100% {opacity: 1;}
+footer{
+  font-size: 16px;
+  color: white;
+  text-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
 }
 
-.main-image{
-  background-image: url("logo512.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: center;
-  animation-name: image-animate;
-  animation-duration: 1s;
-  width: 100%;
-  padding-top: 50%;
+footer a{
+  color: white;
+}
 
-            }
-*/
+footer a:hover:after{ 
+  content: " > " attr(title); 
+}
 
-  /*padding-top: 66.64%;  (img-height / img-width * container-width) */
-              /* (853 / 1280 * 100) */
+footer a:focus{
+  text-shadow: 0px 0px 15px var(--greencolor-color), 0px 0px 50px var(--greencolorpressed-color);
+}

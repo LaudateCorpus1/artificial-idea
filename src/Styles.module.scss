@@ -89,11 +89,6 @@ $changelooklarge: 900px;
         background-color: $oninteractivecolor;
         box-shadow: 0px 0px 25px $shadowfront, 0px 0px 50px $shadowback;
     }
-    /*
-    &:focus{
-        animation: color-change .2s ease;
-    }
-    */
 }
 
 @keyframes color-change{
