@@ -17,7 +17,7 @@ export function MakeWordButton(props){
     );
 }
 
-// returns a refresh button to update certain objects
+// returns a refresh button to allow user to update certain objects
 export function MakeRefreshButton(props){
     return(
         <input 
@@ -30,7 +30,7 @@ export function MakeRefreshButton(props){
     );
 }
 
-// returns image to put into the custom textbox
+// returns image to put into react component
 export function MakeImage(props){
     //console.log('image got here - ' + props.image);
     if(props.image){
@@ -45,7 +45,7 @@ export function MakeImage(props){
     }
 }
 
-// returns paragraph to put into the custom textbox
+// returns paragraph to put into react component
 export function MakeParagraph(props){
     //console.log('paragraph got here - ' + props.paragraph);
     if(props.paragraph){

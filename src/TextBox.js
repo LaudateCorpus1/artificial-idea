@@ -15,7 +15,7 @@ class TextBoxItems extends React.Component{
                 image='./logo512.png'
             />,
             paragraph: <MakeParagraph 
-                paragraph='Pick a word above and see what 
+                paragraph='Pick an idea above and see what 
                 Artificial Idea gets generated!'
             />,
         }
@@ -31,7 +31,7 @@ class TextBoxItems extends React.Component{
                         image='./logo512.png'
                     />,
                     paragraph: <MakeParagraph 
-                        paragraph='Pick a word above and see what 
+                        paragraph='Pick an idea above and see what 
                         Artificial Idea gets generated!'
                     />,
                 })
