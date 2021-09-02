@@ -49,3 +49,41 @@ export async function generateImage(word){
     return resp;
 }
 
+// create a timer with time * seconds of run time in order to wait for proper
+// input (basically to avoid spamming of something to keep API calls down)
+let checkTimer;
+let checkCount = 0;
+// the idea is that the last object to be chosen within a time span gets chosen 
+// to be updated otherwise just return a false for an if check
+/** 
+ * Function to return the object from the last call 
+ * in a number of calls it has gotten within a certain time span.
+ * @param {number} time The time (in seconds)
+ * @param {object} object A desired object to be returned
+ * @return {object} object of last call after time has been reached
+ * @return {bool} false if call is not the last call within the time span
+*/
+export async function desireLastCall(time, object){
+    checkCount = checkCount + 1;
+    clearTimeout(checkTimer);
+    checkTimer = (resolve, reject) => setTimeout(() => {
+        if(checkCount > 1){
+            checkCount = checkCount - 1;
+            reject();
+        }
+        else{
+            checkCount = checkCount - 1;
+            resolve(object);
+        }
+    }, time * 1000);
+    return await new Promise((resolve, reject) => checkTimer(resolve, reject))
+        .then(
+            (object) => {
+                return object;
+        })
+        .catch(
+            () => {
+                return false;
+            }
+        )
+}

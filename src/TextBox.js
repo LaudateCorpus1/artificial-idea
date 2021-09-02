@@ -1,7 +1,7 @@
 // This file is for generating/intearcting with boxes of text
 // to get a user input
 import React from 'react';
-import  {generateParagraph, generateImage} from './MakeData.js';
+import  {desireLastCall, generateImage, generateParagraph} from './MakeData.js';
 import {MakeImage, MakeParagraph, MakeRefreshButton} from './MakeObject.js';
 import './TextBox.scss';
 
@@ -22,12 +22,9 @@ class TextBoxItems extends React.Component{
         }
     }
 
-    actuallyUpdate(){
-        
-    }   
-
     componentDidUpdate(){
         if(this.state.word !== this.props.word || this.state.refresh){
+            //console.log('will commit to update');
             // if the componenet updates with no idea, set default objects
             if(this.props.word === ''){
                 this.setState({
@@ -44,21 +41,23 @@ class TextBoxItems extends React.Component{
             }
             else{
                 // else there is a change of idea, so update 
-                // objects with newly generated dat 
+                // objects with newly generated data 
                 (async () => {
-                    console.log("got here");
-                    let imagesrc = await generateImage(this.props.word);
-                    let paragraphtext = await generateParagraph(this.props.word);
-                    this.setState({
-                        refresh: false,
-                        word: this.props.word,
-                        image: <MakeImage
-                            image={imagesrc}
-                        />,
-                        paragraph: <MakeParagraph
-                            paragraph={paragraphtext}
-                        />,
-                    })
+                    let lastcall = await desireLastCall(3, this.props.word);
+                    if(lastcall){
+                        let imagesrc = await generateImage(this.props.word);
+                        let paragraphtext = await generateParagraph(this.props.word);
+                        this.setState({
+                            refresh: false,
+                            word: this.props.word,
+                            image: <MakeImage
+                                image={imagesrc}
+                            />,
+                            paragraph: <MakeParagraph
+                                paragraph={paragraphtext}
+                            />,
+                        })
+                    }
                 })()
             }
         }
@@ -70,7 +69,10 @@ class TextBoxItems extends React.Component{
             <div>
                 <div className='textbox-refresh-outside'>
                     <div className='textbox-refresh'>
-                        <MakeRefreshButton onClickRefresh={() => {this.setState({refresh: true})}}/>
+                        <MakeRefreshButton onClickRefresh={
+                                () => {this.setState({refresh : true})}
+                            }
+                        />
                     </div>
                 </div>
             {this.state.image}
