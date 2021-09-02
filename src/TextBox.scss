@@ -10,7 +10,6 @@ $internal-white: rgba(255, 255, 255, 0.9);
     @include box-shading;
     max-width: 1024px;
     overflow: auto;
-    height: auto;
     background: $background-transparent;
 }
 
@@ -18,18 +17,32 @@ $internal-white: rgba(255, 255, 255, 0.9);
     @include general-padding;
     @include border-main;
     @include box-shading;
-    background: $internal-white;
     overflow: hidden;
+    width: auto;
+    background: $internal-white;
 }
 
 .textbox-word-outside{
-    @include autoresize;
     margin-bottom: 15px;
     max-height: auto;
+    width: auto;
 }
 
 .textbox-word{
     overflow-wrap: break-word;
     text-align: center;
-    font-size: 34px;
+    font-size: 38px;
+}
+
+.textbox-refresh-outside{
+    margin-bottom: 10px;
+    overflow: auto;
+    display: inline-block;
+}
+
+.textbox-refresh{
+    @include autoresize;
+    float: right;
+    max-width: 64px;
+    max-height: 64px;
 }

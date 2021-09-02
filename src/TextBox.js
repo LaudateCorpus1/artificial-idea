@@ -2,7 +2,7 @@
 // to get a user input
 import React from 'react';
 import  {generateParagraph, generateImage} from './MakeData.js';
-import {MakeImage, MakeParagraph} from './MakeObject.js';
+import {MakeImage, MakeParagraph, MakeRefreshButton} from './MakeObject.js';
 import './TextBox.scss';
 
 // component to generate/update state of textbox objects
@@ -10,6 +10,7 @@ class TextBoxItems extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            refresh: false,
             word: this.props.word,
             image: <MakeImage 
                 image='./logo512.png'
@@ -21,11 +22,16 @@ class TextBoxItems extends React.Component{
         }
     }
 
+    actuallyUpdate(){
+        
+    }   
+
     componentDidUpdate(){
-        if(this.state.word !== this.props.word){
+        if(this.state.word !== this.props.word || this.state.refresh){
+            // if the componenet updates with no idea, set default objects
             if(this.props.word === ''){
-                // if the componenet updates with no word, set default objects
                 this.setState({
+                    refresh: false,
                     word: this.props.word,
                     image: <MakeImage 
                         image='./logo512.png'
@@ -37,12 +43,14 @@ class TextBoxItems extends React.Component{
                 })
             }
             else{
-                // if there is a change of word then update 
-                // objects with newly generated data
+                // else there is a change of idea, so update 
+                // objects with newly generated dat 
                 (async () => {
+                    console.log("got here");
                     let imagesrc = await generateImage(this.props.word);
                     let paragraphtext = await generateParagraph(this.props.word);
                     this.setState({
+                        refresh: false,
                         word: this.props.word,
                         image: <MakeImage
                             image={imagesrc}
@@ -56,9 +64,15 @@ class TextBoxItems extends React.Component{
         }
     }
 
+    // if the user uses the refresh button, generate new info for the idea at hand
     render(){
         return(
             <div>
+                <div className='textbox-refresh-outside'>
+                    <div className='textbox-refresh'>
+                        <MakeRefreshButton onClickRefresh={() => {this.setState({refresh: true})}}/>
+                    </div>
+                </div>
             {this.state.image}
             {this.state.paragraph}
             </div>
@@ -74,9 +88,9 @@ class TextBox extends React.Component{
             <div className='textbox'>
                 <div className='textbox-inside'>
                     <div className='textbox-word-outside'>
-                        <span className='textbox-word'>
+                        <div className='textbox-word'>
                             {this.props.word}
-                        </span>
+                        </div>
                     </div>
                     <TextBoxItems word={this.props.word}/>
                 </div>
