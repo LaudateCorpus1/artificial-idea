@@ -36,13 +36,10 @@ $internal-white: rgba(255, 255, 255, 0.9);
 
 .textbox-refresh-outside{
     margin-bottom: 10px;
-    overflow: auto;
     display: inline-block;
 }
 
 .textbox-refresh{
-    @include autoresize;
-    float: right;
-    max-width: 64px;
-    max-height: 64px;
+    width: 64px;
+    height: 64px;
 }

@@ -1,58 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
-
-:root{
-  --whitelfcolor-color: #fff;
-  --whitelbcolor-color: #ccc;
-
-  --greencolor-color: rgb(0, 200, 0);
-  --greencolorpressed-color: rgb(0, 126, 0);
-}
-
-body {
-  background-color: rgb(88, 88, 88);
-  background-image: url('abstract_background2.jpg');
-  font-size: 24px;
-  font-family: 'Inconsolata', monospace;
-}
-
-@media(max-width: 900px){
-  body {
-    background-size: 1080px 100%;
-  }
-}
-
-.topnav{
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-color: rgb(48, 48, 48);
-  box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
-}
-
-.topnav a{
-  padding: 8px 16px;
-  text-decoration: none;
-  color: white;
-  text-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
-  transition: color 1s ease;
-}
-
-.topnav-title{
-  display: inline-block;
-  margin: 2px auto;
-  height: 100%;
-  font-size: 36px;
-  color: white;
-  text-shadow:0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
-}
-
-@media (max-width: 510px){
-  .topnav-title{
-    margin: 10px auto;
-    width: 100%;
-  }
-}
+@import './generic.css';
 
 .topnav a.topnav-idea{
   float: left;
@@ -73,29 +20,4 @@ body {
   background-color: rgb(126, 126, 126);
   box-shadow: 0px 0px 50px var(--whitelfcolor-color), 0px 0px 100px var(--whitelbcolor-color);
   transition: box-shadow 1s ease;
-}
-
-hr{
-  background: white;
-  border: 1px solid white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
-}
-
-footer{
-  font-size: 16px;
-  color: white;
-  text-shadow: 0px 0px 10px var(--whitelfcolor-color), 0px 0px 10px var(--whitelbcolor-color);
-}
-
-footer a{
-  color: white;
-}
-
-footer a:hover:after{ 
-  content: " > " attr(title); 
-}
-
-footer a:focus{
-  text-shadow: 0px 0px 15px var(--greencolor-color), 0px 0px 50px var(--greencolorpressed-color);
 }

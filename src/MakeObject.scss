@@ -18,15 +18,28 @@
     border: none;
 }
 
-.refresh-button{
-    @include autoresize;
+.refresh-button-outside{
     @include border-main;
     @include box-shading;
     @include interactive-nocolorchange;
+    @include general-horizontal-centering;
     background-color: $background;
-    position: relative;
     max-width: 192px;
     max-height: 192px;
+}
+
+@mixin refresh-button{
+    @include autoresize;
+    vertical-align: middle;
+}
+
+.refresh-button{
+    @include refresh-button;
+}
+
+.refresh-button-activate{
+    @include refresh-button;
+    @include rotate-effect;
 }
 
 .image{
@@ -39,7 +52,7 @@
 }
 
 .paragraph-text{
-    @include border-main;
+    overflow-wrap: break-word;
     text-align: left;
     margin: 0px;
 }

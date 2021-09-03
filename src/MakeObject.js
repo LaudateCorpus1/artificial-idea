@@ -19,14 +19,18 @@ export function MakeWordButton(props){
 
 // returns a refresh button to allow user to update certain objects
 export function MakeRefreshButton(props){
+    //console.log('got refresh: ' + props.active);
+    let isactive = props.active ? 'refresh-button-activate' : 'refresh-button';
     return(
-        <input 
-            type='image'
-            alt='refresh image'
-            src='./white-refresh-arrow.png'
-            className='refresh-button'
-            onClick={props.onClickRefresh}>
-        </input>
+        <div className='refresh-button-outside'>
+            <input 
+                type='image'
+                alt='refresh image'
+                src='./white-refresh-arrow.png'
+                className={isactive}
+                onClick={props.onClickRefresh}>
+            </input>
+        </div>
     );
 }
 

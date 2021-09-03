@@ -23,13 +23,13 @@ class TextBoxItems extends React.Component{
     }
 
     componentDidUpdate(){
-        if(this.state.word !== this.props.word || this.state.refresh){
+        // if there is a desire to refresh the state
+        if(this.state.refresh){
             //console.log('will commit to update');
             // if the componenet updates with no idea, set default objects
             if(this.props.word === ''){
                 this.setState({
                     refresh: false,
-                    word: this.props.word,
                     image: <MakeImage 
                         image='./logo512.png'
                     />,
@@ -43,13 +43,13 @@ class TextBoxItems extends React.Component{
                 // else there is a change of idea, so update 
                 // objects with newly generated data 
                 (async () => {
-                    let lastcall = await desireLastCall(3, this.props.word);
+                    let lastcall = await desireLastCall(3, this.state.word);
                     if(lastcall){
-                        let imagesrc = await generateImage(this.props.word);
-                        let paragraphtext = await generateParagraph(this.props.word);
+                        //console.log('chosen word: ' + lastcall);
+                        let imagesrc = await generateImage(this.state.word);
+                        let paragraphtext = await generateParagraph(this.state.word);
                         this.setState({
                             refresh: false,
-                            word: this.props.word,
                             image: <MakeImage
                                 image={imagesrc}
                             />,
@@ -61,6 +61,13 @@ class TextBoxItems extends React.Component{
                 })()
             }
         }
+        // if there has been a change in idea(word)
+        if(this.state.word !== this.props.word){
+            this.setState({
+                refresh: true,
+                word: this.props.word
+            })
+        }
     }
 
     // if the user uses the refresh button, generate new info for the idea at hand
@@ -69,8 +76,12 @@ class TextBoxItems extends React.Component{
             <div>
                 <div className='textbox-refresh-outside'>
                     <div className='textbox-refresh'>
-                        <MakeRefreshButton onClickRefresh={
-                                () => {this.setState({refresh : true})}
+                        <MakeRefreshButton 
+                            active={this.state.refresh}
+                            onClickRefresh={
+                                () => {this.setState({
+                                    refresh : true,
+                                })}
                             }
                         />
                     </div>
