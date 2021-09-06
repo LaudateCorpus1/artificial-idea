@@ -1,6 +1,6 @@
 ---Artificial Idea---
 
-![alt text](https://github.com/lichenstat/artificial-idea/blob/master/logo512.png?raw=true)
+![alt text](https://github.com/lichenstat/artificial-idea/blob/master/src/assets/logo512.png?raw=true)
 
 A ReactJS application that was made mostly during the summer of 2021 as a 
 passion/learning project.
