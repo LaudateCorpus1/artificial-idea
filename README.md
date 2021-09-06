@@ -5,6 +5,8 @@
 <img  src="https://github.com/lichenstat/artificial-idea/blob/clientside-based/src/assets/logo512.png?raw=true"/>
 </div>
 
+### [Video Example Here](https://www.youtube.com/watch?v=2z-NAyJqHJ0) ###
+
 A ReactJS application that was made mostly during the summer of 2021 as a
 passion/learning project.
 
