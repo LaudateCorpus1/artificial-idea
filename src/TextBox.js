@@ -4,7 +4,9 @@ import React from 'react';
 import  {desireLastCall, generateImage, generateParagraph} from './MakeData.js';
 import {MakeImage, MakeParagraph, MakeRefreshButton} from './MakeObject.js';
 import './TextBox.scss';
+import bagicon from './assets/logo512.png';
 
+const defaultparagraph = 'Pick an idea above and see what Artificial Idea gets generated!';
 // component to generate/update state of textbox objects
 class TextBoxItems extends React.Component{
     constructor(props){
@@ -13,11 +15,10 @@ class TextBoxItems extends React.Component{
             refresh: false,
             word: this.props.word,
             image: <MakeImage 
-                image='./logo512.png'
+                image={bagicon}
             />,
             paragraph: <MakeParagraph 
-                paragraph='Pick an idea above and see what 
-                Artificial Idea gets generated!'
+                paragraph={defaultparagraph}
             />,
         }
     }
@@ -31,11 +32,10 @@ class TextBoxItems extends React.Component{
                 this.setState({
                     refresh: false,
                     image: <MakeImage 
-                        image='./logo512.png'
+                        image={bagicon}
                     />,
                     paragraph: <MakeParagraph 
-                        paragraph='Pick an idea above and see what 
-                        Artificial Idea gets generated!'
+                        paragraph={defaultparagraph}
                     />,
                 })
             }
@@ -94,7 +94,7 @@ class TextBoxItems extends React.Component{
 }
 
 // longest (english)word: pneumonoultramicroscopicsilicovolcanoconiosis
-// rendering and returning of the textbox component
+// rendering and returning of the textbox component on users choice of idea
 class TextBox extends React.Component{
     render(){
         return(

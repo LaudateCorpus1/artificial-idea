@@ -2,6 +2,8 @@
 // react components
 import React from 'react';
 import './MakeObject.scss';
+import refreshicon from './assets/white-refresh-arrow.png';
+import cancelicon from './assets/cancel-mark.png';
 
 // returns a button with a given prop value as input
 export function MakeWordButton(props){
@@ -26,7 +28,7 @@ export function MakeRefreshButton(props){
             <input 
                 type='image'
                 alt='refresh image'
-                src='./white-refresh-arrow.png'
+                src={refreshicon}
                 className={isactive}
                 onClick={props.onClickRefresh}>
             </input>
@@ -44,7 +46,7 @@ export function MakeImage(props){
     }
     else{
         return(
-            <img className='image' src='./cancel-mark.png' alt='mainimg'/>
+            <img className='image' src={cancelicon} alt='mainimg'/>
         );
     }
 }

@@ -1,10 +1,10 @@
 // This file is for getting words, text, and images using strings via 
 // DeepAI API and some custom methods
-import Words from './nounlist.json';
-import {deepaikey} from './keys.js';
+import Words from './assets/nounlist.json';
 
 const deepai = require('deepai');
-deepai.setApiKey(deepaikey);
+const key = require('./keys');
+deepai.setApiKey(key.deepaikey);
 
 // returns a word gotten from a list of nouns from a json file
 export function generateWord(){
@@ -15,6 +15,7 @@ export function generateWord(){
 
 // uses a Promise async/await to help in generating a paragraph of text
 export async function generateParagraph(word){
+    //console.log("word got to generateParagraph: " + word);
     var resp = await deepai.callStandardApi("text-generator", {
         text: word,
     }).then(
@@ -33,6 +34,7 @@ export async function generateParagraph(word){
 
 // uses a Promise async/await to help in generating an image
 export async function generateImage(word){
+    //console.log("word got to generateImage: " + word);
     var resp = await deepai.callStandardApi("text2img", {
         text: word,
     }).then(
